@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender: MyString
+  from: MyString
+  subject: MyString
+  stripped_text: MyText
+  body_plain: MyText
+  stripped_html: MyText
+  body_html: MyText
+
+two:
+  sender: MyString
+  from: MyString
+  subject: MyString
+  stripped_text: MyText
+  body_plain: MyText
+  stripped_html: MyText
+  body_html: MyText
