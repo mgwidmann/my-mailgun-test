@@ -18,6 +18,8 @@
   <dd><%= @message.stripped_html %></dd>
   <dt><strong><%= model_class.human_attribute_name(:body_html) %>:</strong></dt>
   <dd><%= @message.body_html %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:stripped_signature) %>:</strong></dt>
+  <dd><%= @message.stripped_signature %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

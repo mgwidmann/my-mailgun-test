@@ -24,7 +24,18 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
+    @message = Message.new(params[:message] ||
+      {
+        from: params[:from],
+        sender: params[:sender],
+        subject: params[:subject],
+        stripped_text: params['stripped-text'],
+        body_plain: params['body-plain'],
+        stripped_html: params['stripped-html'],
+        body_html: params['body-html'],
+        stripped_signature: params['stripped_signature']
+      }
+    )
 
     respond_to do |format|
       if @message.save
@@ -69,7 +80,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      # params.require(:message).permit(:sender, :from, :subject, :stripped_text, :body_plain, :stripped_html, :body_html)
-      params[:message] || params
+      params.require(:message).permit(:sender, :from, :subject, :stripped_text, :body_plain, :stripped_html, :body_html)
     end
 end
