@@ -10,10 +10,6 @@
       <th><%= model_class.human_attribute_name(:from) %></th>
       <th><%= model_class.human_attribute_name(:subject) %></th>
       <th><%= model_class.human_attribute_name(:stripped_text) %></th>
-      <th><%= model_class.human_attribute_name(:body_plain) %></th>
-      <th><%= model_class.human_attribute_name(:stripped_html) %></th>
-      <th><%= model_class.human_attribute_name(:body_html) %></th>
-      <th><%= model_class.human_attribute_name(:stripped_signature) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -22,14 +18,10 @@
     <% @messages.each do |message| %>
       <tr>
         <td><%= link_to message.id, message_path(message) %></td>
-        <td><%= message.sender %></td>
-        <td><%= message.from %></td>
-        <td><%= message.subject %></td>
+        <td><%= mail_to message.sender %></td>
+        <td><%= mail_to message.from %></td>
+        <td><%= link_to message.subject, message_path(message) %></td>
         <td><%= message.stripped_text %></td>
-        <td><%= message.body_plain %></td>
-        <td><%= message.stripped_html %></td>
-        <td><%= message.body_html %></td>
-        <td><%= message.stripped_signature %></td>
         <td><%=l message.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

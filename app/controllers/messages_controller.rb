@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(params[:message] ||
+    @message = Message.new(params[:message] ? message_params :
       {
         from: params[:from],
         sender: params[:sender],
