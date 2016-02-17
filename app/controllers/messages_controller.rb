@@ -40,6 +40,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        send_email(@message)
         format.html { params[:message] ? redirect_to(@message, notice: 'Message was successfully created.') : render(text: "+1") }
         format.json { render :show, status: :created, location: @message }
       else
@@ -74,6 +75,18 @@ class MessagesController < ApplicationController
   end
 
   private
+
+    def send_email(message)
+      is_vendor = params[:to].include?('vendor')
+      parameters = {
+        to: is_vendor ? 'kmusselman@weddingwire.com' : 'mwidmann@weddingwire.com',
+        subject: message.subject,
+        text: message.stripped_text,
+        from: "#{is_vendor ? 'vendor' : 'wedding-user'}@appb6fe1da58dfe443aa09720e568195cd4.mailgun.org"
+      }
+      $mailgun.messages.send_email(parameters)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_message
       @message = Message.find(params[:id])
