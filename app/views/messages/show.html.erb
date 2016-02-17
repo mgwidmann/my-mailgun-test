@@ -8,6 +8,8 @@
   <dd><%= @message.sender %></dd>
   <dt><strong><%= model_class.human_attribute_name(:from) %>:</strong></dt>
   <dd><%= @message.from %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:unique_id) %>:</strong></dt>
+  <dd><%= @message.unique_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:subject) %>:</strong></dt>
   <dd><%= @message.subject %></dd>
   <dt><strong><%= model_class.human_attribute_name(:stripped_text) %>:</strong></dt>

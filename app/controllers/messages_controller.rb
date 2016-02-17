@@ -33,7 +33,8 @@ class MessagesController < ApplicationController
         body_plain: params['body-plain'],
         stripped_html: params['stripped-html'],
         body_html: params['body-html'],
-        stripped_signature: params['stripped-signature']
+        stripped_signature: params['stripped-signature'],
+        unique_id: params['References'].try(:split, ' ').try(:first) || params['Message-Id']
       }
     )
 
