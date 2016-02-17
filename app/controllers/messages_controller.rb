@@ -77,7 +77,7 @@ class MessagesController < ApplicationController
   private
 
     def send_email(message)
-      is_vendor = params[:to].include?('vendor')
+      is_vendor = params['To'].try(:include?, 'vendor')
       parameters = {
         to: is_vendor ? 'kmusselman@weddingwire.com' : 'mwidmann@weddingwire.com',
         subject: message.subject,
