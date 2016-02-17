@@ -82,7 +82,7 @@ class MessagesController < ApplicationController
         to: is_vendor ? 'kmusselman@weddingwire.com' : 'mwidmann@weddingwire.com',
         subject: message.subject,
         text: message.stripped_text,
-        from: "#{is_vendor ? 'vendor' : 'wedding-user'}@appb6fe1da58dfe443aa09720e568195cd4.mailgun.org"
+        from: "#{is_vendor ? 'wedding-user' : 'vendor'}@appb6fe1da58dfe443aa09720e568195cd4.mailgun.org"
       }
       $mailgun.messages.send_email(parameters)
     end
