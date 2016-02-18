@@ -18,10 +18,10 @@
   </dd>
   <dt><strong><%= model_class.human_attribute_name(:body_plain) %>:</strong></dt>
   <dd><%= @message.body_plain %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:stripped_html).html_safe %>:</strong></dt>
-  <dd><%= @message.stripped_html %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:body_html).html_safe %>:</strong></dt>
-  <dd><%= @message.body_html %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:stripped_html) %>:</strong></dt>
+  <dd><%= raw @message.stripped_html %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:body_html) %>:</strong></dt>
+  <dd><%= raw @message.body_html %></dd>
   <dt><strong><%= model_class.human_attribute_name(:stripped_signature) %>:</strong></dt>
   <dd><%= @message.stripped_signature %></dd>
 </dl>
