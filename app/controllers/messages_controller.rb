@@ -29,6 +29,7 @@ class MessagesController < ApplicationController
       logger.info "Zzzz..."
       sleep 1
     end
+    raise "Error: #{params[:subject]}" if params[:subject] =~ /error/i
     @message = Message.new(params[:message] ? message_params :
       {
         from: params[:from],
