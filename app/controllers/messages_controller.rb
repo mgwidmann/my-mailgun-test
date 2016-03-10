@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     logger.info "Sleepy mailgun processor... Zzzzz "
-    ((params[:subject] =~ /sleep/i && 300)|| 10).times do
+    10.times do
       logger.info "Zzzz..."
       sleep 1
     end
