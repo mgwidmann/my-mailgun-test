@@ -24,6 +24,11 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    logger.info "Sleepy mailgun processor... Zzzzz "
+    10.times do
+      logger.info "Zzzz..."
+      sleep 1
+    end
     @message = Message.new(params[:message] ? message_params :
       {
         from: params[:from],
