@@ -30,6 +30,10 @@ class MessagesController < ApplicationController
       sleep 1
     end
     raise "Error: #{params[:subject]}" if params[:subject] =~ /error/i
+    attachments = (0..(params[:'attachment-count'] || 0).to_i).collect do |n|
+      params["attachment-#{n}"]
+    end
+    logger.info attachments.inspect
     @message = Message.new(params[:message] ? message_params :
       {
         from: params[:from],
